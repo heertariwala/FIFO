@@ -1,0 +1,53 @@
+Start time: 23:48:45 on May 25,2023
+qverilog ..\RTL\Asy_fifo.v ..\TEST\pkg.sv ..\TOP\top.sv "+incdir+..\ENV" "+incdir+..\TEST" "+NORMAL_WRITE_READ" 
+-- Compiling module Asynchronous_fifo
+-- Compiling interface fifo_inf
+-- Compiling package fifo_pkg
+-- Compiling package top_sv_unit
+-- Importing package fifo_pkg
+-- Compiling module tb
+** Warning: ..\TOP\top.sv(73): (qverilog-2240) Treating stand-alone use of function 'cvg_display' as an implicit VOID cast.
+
+Top level modules:
+	tb
+# vsim -lib work top_sv_unit tb -c -do "run -all; quit -f" -appendlog -l qverilog.log -vopt 
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# 
+# ** Warning: ..\TOP\top.sv(73): (vopt-2240) Treating stand-alone use of function 'cvg_display' as an implicit VOID cast.
+# 
+# //  Questa Sim-64
+# //  Version 10.4e win64 Apr  9 2016
+# //
+# //  Copyright 1991-2016 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //  THIS DOCUMENT CONTAINS TRADE SECRETS AND COMMERCIAL OR FINANCIAL
+# //  INFORMATION THAT ARE PRIVILEGED, CONFIDENTIAL, AND EXEMPT FROM
+# //  DISCLOSURE UNDER THE FREEDOM OF INFORMATION ACT, 5 U.S.C. SECTION 552.
+# //  FURTHERMORE, THIS INFORMATION IS PROHIBITED FROM DISCLOSURE UNDER
+# //  THE TRADE SECRETS ACT, 18 U.S.C. SECTION 1905.
+# //
+# Loading sv_std.std
+# Loading work.fifo_pkg(fast)
+# Loading work.top_sv_unit(fast)
+# Loading work.tb(fast)
+# Loading work.Asynchronous_fifo(fast)
+# Loading work.assertion_fifo(fast)
+# Loading work.fifo_inf(fast)
+# run -all
+# 18446744073709551611
+# Warning: In instance '\/fifo_pkg::score_board::fifo_cvg_h ' the 'option.per_instance' is set to '0' (false). Assignment to members 'weight', 'goal' and 'comment' of 'option' would not have any effect.
+# ** Fatal: (SIGSEGV) Bad handle or reference.
+#    Time: 10 ns  Iteration: 2  Process: /fifo_pkg::env::run/#FORK#40_4f629d4f File: ../TEST/pkg.sv
+# Fatal error in Module fifo_pkg at ../ENV/env.sv line 40
+# 
+# HDL call sequence:
+# Stopped at ../ENV/env.sv 40 Module fifo_pkg
+# 
+#  quit -f
+# coverage :- 0
+# End time: 23:48:53 on May 25,2023, Elapsed time: 0:00:08
+# Errors: 2, Warnings: 3

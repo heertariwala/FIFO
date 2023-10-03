@@ -1,0 +1,10 @@
+var g_data = {
+g0051295365_3923144117_0:[{dummy:0},
+{name:'fifo_cvg',f:1,type:1,id:150,tb:'20',h:'19',m:'1',hp:'95.00%',cov:['88.88%','Y'],g:'100.00%',gp:['88.88%','Y']},
+{name:'\\/fifo_pkg::score_board::fifo_cvg_h ',f:1,type:2,id:160,tb:'20',h:'19',m:'1',hp:'95.00%',cov:['88.88%','Y'],g:'100.00%',gp:['88.88%','Y'],cmnt:'FIFO  coverage ',cvg:'fifo_cvg'}],
+g1050196874_2252296845_0:[{dummy:0},
+{name:'fifo_cvg',f:1,type:1,id:243,tb:'20',h:'19',m:'1',hp:'95.00%',cov:['88.88%','Y'],g:'100.00%',gp:['88.88%','Y']},
+{name:'\\/fifo_pkg::score_board::fifo_cvg_h ',f:1,type:2,id:253,tb:'20',h:'19',m:'1',hp:'95.00%',cov:['88.88%','Y'],g:'100.00%',gp:['88.88%','Y'],cmnt:'FIFO  coverage ',cvg:'fifo_cvg'}],
+dummyEnd:0
+};
+processCovergroupsData(g_data);

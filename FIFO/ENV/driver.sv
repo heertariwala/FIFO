@@ -1,0 +1,253 @@
+
+
+
+class driver;
+//trans class handler 
+  trans trans_h , trans_h1 , trans_h2 , trans_h3 , trans_h4;
+
+// parametarize mailbox for gen_drv and drv_sb
+  mailbox #(trans) gen_drv;
+
+  event env1;
+  
+//intrface 
+  virtual fifo_inf.DRIVER vif ;
+  virtual fifo_inf        vif_rstn;
+
+  // driver counter for reset
+  int rstn_count ;
+
+  trans read_que[$];
+
+  bit flag = 0;
+  // counter for sim_rw to complete
+  int counter ;
+
+
+// gatting handle of mailbox and interface from env 
+  function  new ( mailbox #(trans) gen_drv ,
+		   virtual fifo_inf.DRIVER vif ,
+		   virtual fifo_inf        vif_rstn
+           	);
+  	this.gen_drv  = gen_drv  ;
+	this.vif      = vif      ; 		
+	this.vif_rstn = vif_rstn ;
+  endfunction
+
+
+  task run();
+	wait (vif.rstn);
+
+	forever begin 
+         fork
+	        forever begin
+			 // initialy driver zero if any value will high than it will
+			 // override
+			
+	      	 vif.driver_wr.wr_enb  <= 0;
+	      	 vif.driver_rd.rd_enb  <= 0;
+	            
+	      	 // get data from mailbox in trans_h 
+             gen_drv.get(trans_h);
+  			  
+			 // reset apply
+			 if(trans_h.reset_after_num_tran == rstn_count) begin
+ 					$display("===============RESET applyed=========================");
+
+				     vif_rstn.reset(10);
+					 //rstn_count += 1;
+
+					 $info("-----------reset---------------");
+			 end
+
+			 else begin
+
+  	      	     case(trans_h.trans_kind_e)
+	      	    	 WRITE: begin
+			    		   wait(read_que.size() == 0);	 
+			    		   // call write task	 
+			    		   //rstn_count ++;
+ 	      	    		   send_to_wr_dut(trans_h);
+			    		   
+	      	    	 	end
+	      	    	// 
+	      	    	 READ : begin
+			    			 wait(counter == 0);
+			    		   // calling read task	 
+			    		   //rstn_count ++;
+	      	    		   send_to_rd_dut(trans_h);
+	      	    		 end	 
+
+ 	      	    	// in sim_rw both task should start togather 
+			    	SIM_RW: begin
+			    	       // assume write frequency always greterthan read
+			    		   // frequency
+			    		   //rstn_count ++;
+			    		   send_dut_sim_rw();
+	      	    		   
+ 	      	    		 end
+	      	     endcase
+               end // else
+			   rstn_count++;
+	       end // forever 
+	   	 
+	   	   begin
+	   			@(negedge vif.rstn);
+	            
+	       end
+
+	    join_any	
+	      // if any of task is complite than wait for reset
+	    disable fork;
+	    $display("---------------------disable fork---------------------------")	;
+	    @(posedge vif.rstn);
+	      // wait for posedge of reset 
+
+	   		   
+	end//forever
+
+ 
+ endtask :run
+
+  
+  // send to dut through write driver , when transh_kind value is WRITE
+  task send_to_wr_dut( trans trans_h1);
+  //fork
+  //begin
+	//	 wait(env1.triggered);
+		//   disable ABC;
+		  // end
+		   //begin
+         vif.driver_wr.wr_enb  <=  trans_h1.trans_kind_e[1];
+		 @(vif.driver_wr);
+    	 vif.driver_wr.wr_data <=  trans_h1.wr_data;
+		 //end
+		//@(vif.driver_wr);
+//join
+  endtask
+
+  // send to dut through read driver , when transh_kind value is READ
+  task send_to_rd_dut( trans trans_h1);
+  //fork
+  //begin
+	//	 wait(env1.triggered);
+		//   disable ABC;
+		  // end
+		   //begin
+       vif.driver_rd.rd_enb  <=  trans_h1.trans_kind_e[0] ;
+       @(vif.driver_rd);
+	   //end
+	   //join
+
+  endtask
+  
+  // task for sim_rw
+  task send_dut_sim_rw();
+	   //call write task	  
+ 	   send_to_wr_dut(trans_h);
+	   // push back in que 
+	   read_que.push_back(trans_h);
+
+	   counter = counter + 1;			 
+
+	   // if flag value is low than enter
+	   if(!flag) begin
+		   flag = 1;
+	   // fork join_none because we want loop run in back ground 	   
+	   fork	: ABC  
+	     forever begin
+	         if(read_que.size != 0) begin
+				// pop from que and call write task 
+	        	  trans_h2 = read_que.pop_front();
+				  send_to_rd_dut(trans_h2);
+				  counter = counter - 1;
+				  end // if
+			 else begin
+				  // que is qmpty than at next cycle enable should be low 
+			      @(vif.driver_rd);
+				  vif.driver_rd.rd_enb  <= 0;
+				  ->env1;
+			 end;
+		 end // forever
+	   join_none
+		wait(env1.triggered);
+		disable fork;
+
+	   end // if
+
+  endtask
+
+
+
+endclass
+
+
+
+
+
+
+
+
+//-------------------------Commented important code---------------
+//
+
+/*
+		  // get data from gen_drv
+		  gen_drv.get(trans_h);
+
+
+                  // if trans kind value is write than write task is call
+		  if(trans_h.trans_kind_e == WRITE ) 
+			   send_to_wr_dut(trans_h);
+		  // if trans kind value is read than write enable shoud be off 
+		  else if(trans_h.trans_kind_e == READ )
+			  vif.driver_wr.wr_enb  <= 0;
+
+
+		  //if trans kind value is read than read task will call
+		  if(trans_h.trans_kind_e == READ)
+			  send_to_rd_dut(trans_h);
+		  // if trans kind value is write than read enable shoud be off
+		  else if(trans_h.trans_kind_e == WRITE )
+			  vif.driver_rd.rd_enb  <= 0;
+                
+
+		  // if trans kind value is sim_rw than in fork join both task
+		  // will call
+		  if(trans_h.trans_kind_e == SIM_RW )
+		  fork
+			  send_to_wr_dut_sim_rw(trans_h); 
+                          send_to_rd_dut_sim_rw(trans_h);   
+		  join
+			  	  
+	    end   //else 
+		 
+	  end   // forever
+
+    join
+	  
+  endtask
+  */
+
+  // send to dut through write driver , when sim_rw case accur 
+ /* task send_to_wr_dut_sim_rw( trans trans_h1);
+
+        @(vif.driver_wr);
+         vif.driver_wr.wr_enb  <=  trans_h1.trans_kind_e[1];
+         vif.driver_wr.rstn    <=  trans_h1.rstn   ;
+	 vif.driver_wr.wr_data <=  trans_h1.wr_data;
+	@(vif.driver_wr);
+	 vif.driver_wr.wr_enb  <=  0 ; 
+
+  endtask
+
+  // send to dut through read driver , when sim_rw case accur 
+  task send_to_rd_dut_sim_rw( trans trans_h1);
+         @(vif.driver_rd);
+         vif.driver_rd.rstn    <=  trans_h1.rstn            ; 
+	 vif.driver_rd.rd_enb  <=  trans_h1.trans_kind_e[0] ;
+	 @(vif.driver_rd);
+         vif.driver_rd.rd_enb  <=  0;
+  endtask */
+
+

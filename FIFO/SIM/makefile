@@ -1,0 +1,39 @@
+RTL = ..\RTL\Asy_fifo.v
+PKG = ..\TEST\pkg.sv
+TOP = ..\TOP\top.sv
+ASSERTION = ..\Assertion\assertion_fifo.sv
+INCR = +incdir+..\ENV +incdir+..\TEST
+TOP_NAME = tb
+COVERAGE = -c -do "coverage save -onexit -directive -cvg -codeall
+
+
+
+vlog:
+	vlog $(RTL) $(PKG) $(ASSERTION) $(TOP) $(INCR)
+
+qverilog :
+	vsim -novopt $(TOP_NAME) -c -do "run -all ; exit ; " +NORMAL_WRITE_READ
+
+vsim: vlog 
+	vsim -novopt tb +NORMAL_WRITE_READ
+
+sim: 
+	vsim -novopt tb
+
+
+write_read: vlog
+	vsim -novopt $(TOP_NAME) +NORMAL_WRITE_READ 
+
+
+
+regression: 
+	vlog -coveropt 3 +cover +acc $(RTL) $(PKG) $(TOP) +incdir+..\ENV +incdir+..\TEST
+	vsim -coverage -vopt $(TOP_NAME) $(COVERAGE) NORMAL_WRITE_READ.ucdb; run -all; exit" +NORMAL_WRITE_READ
+	vsim -coverage -vopt $(TOP_NAME) $(COVERAGE) RSTN_DRN_OPN_TC.ucdb; run -all; exit" +RSTN_DRN_OPN_TC
+	vsim -coverage -vopt $(TOP_NAME) $(COVERAGE) SIMULTANEOUS_TC.ucdb; run -all; exit" +SIMULTANEOUS_TC
+	vsim -coverage -vopt $(TOP_NAME) $(COVERAGE) B2B_TC.ucdb; run -all; exit" +B2B_TC
+	vcover merge fifo.ucdb NORMAL_WRITE_READ.ucdb RSTN_DRN_OPN_TC.ucdb SIMULTANEOUS_TC.ucdb B2B_TC.ucdb
+	vcover report -html -htmldir FIFO_MERGE_CVG fifo.ucdb
+
+
+ 

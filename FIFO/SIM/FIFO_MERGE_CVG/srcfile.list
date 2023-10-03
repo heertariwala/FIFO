@@ -1,0 +1,16 @@
+../ENV/driver.sv
+../ENV/env.sv
+../ENV/fifo_inf.sv
+../ENV/gen.sv
+../ENV/monitor.sv
+../ENV/ref_model.sv
+../ENV/score_board.sv
+../ENV/trans.sv
+../RTL/Asy_fifo.v
+../TEST/b2b_TC.sv
+../TEST/base_test.sv
+../TEST/pkg.sv
+../TEST/rstn_drn_opn_TC.sv
+../TEST/simultaneous_TC.sv
+../TEST/write_read.sv
+../TOP/top.sv

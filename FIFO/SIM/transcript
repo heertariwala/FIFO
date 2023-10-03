@@ -1,0 +1,1561 @@
+# //  Questa Sim-64
+# //  Version 10.4e win64 Apr  9 2016
+# //
+# //  Copyright 1991-2016 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //  THIS DOCUMENT CONTAINS TRADE SECRETS AND COMMERCIAL OR FINANCIAL
+# //  INFORMATION THAT ARE PRIVILEGED, CONFIDENTIAL, AND EXEMPT FROM
+# //  DISCLOSURE UNDER THE FREEDOM OF INFORMATION ACT, 5 U.S.C. SECTION 552.
+# //  FURTHERMORE, THIS INFORMATION IS PROHIBITED FROM DISCLOSURE UNDER
+# //  THE TRADE SECRETS ACT, 18 U.S.C. SECTION 1905.
+# //
+# vsim -novopt tb 
+# Start time: 20:06:32 on Jun 01,2023
+# ** Warning: (vsim-8891) All optimizations are turned off because the -novopt switch is in effect. This will cause your simulation to run very slowly. If you are using this switch to preserve visibility for Debug or PLI features please see the User's Manual section on Preserving Object Visibility with vopt.
+# 
+# Refreshing G:/FIFO/FIFO/SIM/work.tb
+# Refreshing G:/FIFO/FIFO/SIM/work.top_sv_unit
+# Refreshing G:/FIFO/FIFO/SIM/work.fifo_pkg
+# Loading sv_std.std
+# Loading work.fifo_pkg
+# Loading work.top_sv_unit
+# Loading work.tb
+# Refreshing G:/FIFO/FIFO/SIM/work.fifo_inf
+# Loading work.fifo_inf
+# Refreshing G:/FIFO/FIFO/SIM/work.Asynchronous_fifo
+# Loading work.Asynchronous_fifo
+# Refreshing G:/FIFO/FIFO/SIM/work.assertion_fifo
+# Loading work.assertion_fifo
+do wave.do
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+# 
+#           File in use by: NEEL PAMBHAR  Hostname: NEEL  ProcessID: 16496
+# 
+#           Attempting to use alternate WLF file "./wlftsqtrm8".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+# 
+#           Using alternate file: ./wlftsqtrm8
+# 
+run -all
+# ===============RESET applyed=========================
+# =============== now apply one  =====================
+# Warning: In instance '\/fifo_pkg::score_board::fifo_cvg_h ' the 'option.per_instance' is set to '0' (false). Assignment to members 'weight', 'goal' and 'comment' of 'option' would not have any effect.
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0IDLE     | 0IDLE     |     5 
+#  rd_data    |     0     |     0     |     5 
+#  full       |     0     |     0     |     5 
+#  empty      |     1     |     1     |     5 
+# almost_full |     0     |     0     |     5 
+# almost_emp  |     0     |     0     |     5 
+#  half_full  |     0     |     0     |     5 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0IDLE     | 0IDLE     |    10 
+#  rd_data    |     0     |     0     |    10 
+#  full       |     0     |     0     |    10 
+#  empty      |     1     |     1     |    10 
+# almost_full |     0     |     0     |    10 
+# almost_emp  |     0     |     0     |    10 
+#  half_full  |     0     |     0     |    10 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | WRITE     | 0IDLE     |    15 
+#  rd_data    |     0     |     0     |    15 
+#  full       |     0     |     0     |    15 
+#  empty      |     0     |     0     |    15 
+# almost_full |     0     |     0     |    15 
+# almost_emp  |     1     |     1     |    15 
+#  half_full  |     0     |     0     |    15 
+# ** Error:                   15 fail!! write pointer not working properly
+#    Time: 15 ns Started: 15 ns  Scope: tb.DUT.AUT.WRITE_PTR File: ../Assertion/assertion_fifo.sv Line: 114
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | WRITE     | 0IDLE     |    25 
+#  rd_data    |     0     |     0     |    25 
+#  full       |     0     |     0     |    25 
+#  empty      |     0     |     0     |    25 
+# almost_full |     0     |     0     |    25 
+# almost_emp  |     0     |     0     |    25 
+#  half_full  |     0     |     0     |    25 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0IDLE     | 0IDLE     |    30 
+#  rd_data    |     0     |     0     |    30 
+#  full       |     0     |     0     |    30 
+#  empty      |     0     |     0     |    30 
+# almost_full |     0     |     0     |    30 
+# almost_emp  |     0     |     0     |    30 
+#  half_full  |     0     |     0     |    30 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | WRITE     | 0IDLE     |    35 
+#  rd_data    |     0     |     0     |    35 
+#  full       |     0     |     0     |    35 
+#  empty      |     0     |     0     |    35 
+# almost_full |     0     |     0     |    35 
+# almost_emp  |     0     |     0     |    35 
+#  half_full  |     0     |     0     |    35 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | WRITE     | 0IDLE     |    45 
+#  rd_data    |     0     |     0     |    45 
+#  full       |     0     |     0     |    45 
+#  empty      |     0     |     0     |    45 
+# almost_full |     0     |     0     |    45 
+# almost_emp  |     0     |     0     |    45 
+#  half_full  |     0     |     0     |    45 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0IDLE     | 0IDLE     |    50 
+#  rd_data    |     0     |     0     |    50 
+#  full       |     0     |     0     |    50 
+#  empty      |     0     |     0     |    50 
+# almost_full |     0     |     0     |    50 
+# almost_emp  |     0     |     0     |    50 
+#  half_full  |     0     |     0     |    50 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | WRITE     | 0IDLE     |    55 
+#  rd_data    |     0     |     0     |    55 
+#  full       |     0     |     0     |    55 
+#  empty      |     0     |     0     |    55 
+# almost_full |     0     |     0     |    55 
+# almost_emp  |     0     |     0     |    55 
+#  half_full  |     0     |     0     |    55 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | WRITE     | 0IDLE     |    65 
+#  rd_data    |     0     |     0     |    65 
+#  full       |     0     |     0     |    65 
+#  empty      |     0     |     0     |    65 
+# almost_full |     0     |     0     |    65 
+# almost_emp  |     0     |     0     |    65 
+#  half_full  |     0     |     0     |    65 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0IDLE     | 0IDLE     |    70 
+#  rd_data    |     0     |     0     |    70 
+#  full       |     0     |     0     |    70 
+#  empty      |     0     |     0     |    70 
+# almost_full |     0     |     0     |    70 
+# almost_emp  |     0     |     0     |    70 
+#  half_full  |     0     |     0     |    70 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | WRITE     | 0IDLE     |    75 
+#  rd_data    |     0     |     0     |    75 
+#  full       |     0     |     0     |    75 
+#  empty      |     0     |     0     |    75 
+# almost_full |     0     |     0     |    75 
+# almost_emp  |     0     |     0     |    75 
+#  half_full  |     0     |     0     |    75 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | WRITE     | 0IDLE     |    85 
+#  rd_data    |     0     |     0     |    85 
+#  full       |     0     |     0     |    85 
+#  empty      |     0     |     0     |    85 
+# almost_full |     0     |     0     |    85 
+# almost_emp  |     0     |     0     |    85 
+#  half_full  |     1     |     1     |    85 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0IDLE     | 0IDLE     |    90 
+#  rd_data    |     0     |     0     |    90 
+#  full       |     0     |     0     |    90 
+#  empty      |     0     |     0     |    90 
+# almost_full |     0     |     0     |    90 
+# almost_emp  |     0     |     0     |    90 
+#  half_full  |     1     |     1     |    90 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | WRITE     | 0IDLE     |    95 
+#  rd_data    |     0     |     0     |    95 
+#  full       |     0     |     0     |    95 
+#  empty      |     0     |     0     |    95 
+# almost_full |     0     |     0     |    95 
+# almost_emp  |     0     |     0     |    95 
+#  half_full  |     0     |     0     |    95 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | WRITE     | 0IDLE     |   105 
+#  rd_data    |     0     |     0     |   105 
+#  full       |     0     |     0     |   105 
+#  empty      |     0     |     0     |   105 
+# almost_full |     0     |     0     |   105 
+# almost_emp  |     0     |     0     |   105 
+#  half_full  |     0     |     0     |   105 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0IDLE     | 0IDLE     |   110 
+#  rd_data    |     0     |     0     |   110 
+#  full       |     0     |     0     |   110 
+#  empty      |     0     |     0     |   110 
+# almost_full |     0     |     0     |   110 
+# almost_emp  |     0     |     0     |   110 
+#  half_full  |     0     |     0     |   110 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | WRITE     | 0IDLE     |   115 
+#  rd_data    |     0     |     0     |   115 
+#  full       |     0     |     0     |   115 
+#  empty      |     0     |     0     |   115 
+# almost_full |     0     |     0     |   115 
+# almost_emp  |     0     |     0     |   115 
+#  half_full  |     0     |     0     |   115 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | WRITE     | 0IDLE     |   125 
+#  rd_data    |     0     |     0     |   125 
+#  full       |     0     |     0     |   125 
+#  empty      |     0     |     0     |   125 
+# almost_full |     0     |     0     |   125 
+# almost_emp  |     0     |     0     |   125 
+#  half_full  |     0     |     0     |   125 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0IDLE     | 0IDLE     |   130 
+#  rd_data    |     0     |     0     |   130 
+#  full       |     0     |     0     |   130 
+#  empty      |     0     |     0     |   130 
+# almost_full |     0     |     0     |   130 
+# almost_emp  |     0     |     0     |   130 
+#  half_full  |     0     |     0     |   130 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | WRITE     | 0IDLE     |   135 
+#  rd_data    |     0     |     0     |   135 
+#  full       |     0     |     0     |   135 
+#  empty      |     0     |     0     |   135 
+# almost_full |     0     |     0     |   135 
+# almost_emp  |     0     |     0     |   135 
+#  half_full  |     0     |     0     |   135 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | WRITE     | 0IDLE     |   145 
+#  rd_data    |     0     |     0     |   145 
+#  full       |     0     |     0     |   145 
+#  empty      |     0     |     0     |   145 
+# almost_full |     0     |     0     |   145 
+# almost_emp  |     0     |     0     |   145 
+#  half_full  |     0     |     0     |   145 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0IDLE     | 0IDLE     |   150 
+#  rd_data    |     0     |     0     |   150 
+#  full       |     0     |     0     |   150 
+#  empty      |     0     |     0     |   150 
+# almost_full |     0     |     0     |   150 
+# almost_emp  |     0     |     0     |   150 
+#  half_full  |     0     |     0     |   150 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | WRITE     | 0IDLE     |   155 
+#  rd_data    |     0     |     0     |   155 
+#  full       |     0     |     0     |   155 
+#  empty      |     0     |     0     |   155 
+# almost_full |     1     |     1     |   155 
+# almost_emp  |     0     |     0     |   155 
+#  half_full  |     0     |     0     |   155 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | WRITE     | 0IDLE     |   165 
+#  rd_data    |     0     |     0     |   165 
+#  full       |     1     |     1     |   165 
+#  empty      |     0     |     0     |   165 
+# almost_full |     0     |     0     |   165 
+# almost_emp  |     0     |     0     |   165 
+#  half_full  |     0     |     0     |   165 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0IDLE     | 0IDLE     |   170 
+#  rd_data    |     0     |     0     |   170 
+#  full       |     1     |     1     |   170 
+#  empty      |     0     |     0     |   170 
+# almost_full |     0     |     0     |   170 
+# almost_emp  |     0     |     0     |   170 
+#  half_full  |     0     |     0     |   170 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | WRITE     | 0IDLE     |   175 
+#  rd_data    |     0     |     0     |   175 
+#  full       |     1     |     1     |   175 
+#  empty      |     0     |     0     |   175 
+# almost_full |     0     |     0     |   175 
+# almost_emp  |     0     |     0     |   175 
+#  half_full  |     0     |     0     |   175 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | WRITE     | 0IDLE     |   185 
+#  rd_data    |     0     |     0     |   185 
+#  full       |     1     |     1     |   185 
+#  empty      |     0     |     0     |   185 
+# almost_full |     0     |     0     |   185 
+# almost_emp  |     0     |     0     |   185 
+#  half_full  |     0     |     0     |   185 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0IDLE     | 0IDLE     |   190 
+#  rd_data    |     0     |     0     |   190 
+#  full       |     1     |     1     |   190 
+#  empty      |     0     |     0     |   190 
+# almost_full |     0     |     0     |   190 
+# almost_emp  |     0     |     0     |   190 
+#  half_full  |     0     |     0     |   190 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | WRITE     | 0IDLE     |   195 
+#  rd_data    |     0     |     0     |   195 
+#  full       |     1     |     1     |   195 
+#  empty      |     0     |     0     |   195 
+# almost_full |     0     |     0     |   195 
+# almost_emp  |     0     |     0     |   195 
+#  half_full  |     0     |     0     |   195 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0IDLE     | 0IDLE     |   205 
+#  rd_data    |     0     |     0     |   205 
+#  full       |     1     |     1     |   205 
+#  empty      |     0     |     0     |   205 
+# almost_full |     0     |     0     |   205 
+# almost_emp  |     0     |     0     |   205 
+#  half_full  |     0     |     0     |   205 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0IDLE     | 0IDLE     |   210 
+#  rd_data    |     0     |     0     |   210 
+#  full       |     1     |     1     |   210 
+#  empty      |     0     |     0     |   210 
+# almost_full |     0     |     0     |   210 
+# almost_emp  |     0     |     0     |   210 
+#  half_full  |     0     |     0     |   210 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0IDLE     | 0IDLE     |   215 
+#  rd_data    |     0     |     0     |   215 
+#  full       |     1     |     1     |   215 
+#  empty      |     0     |     0     |   215 
+# almost_full |     0     |     0     |   215 
+# almost_emp  |     0     |     0     |   215 
+#  half_full  |     0     |     0     |   215 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0IDLE     | 0IDLE     |   225 
+#  rd_data    |     0     |     0     |   225 
+#  full       |     1     |     1     |   225 
+#  empty      |     0     |     0     |   225 
+# almost_full |     0     |     0     |   225 
+# almost_emp  |     0     |     0     |   225 
+#  half_full  |     0     |     0     |   225 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0READ     | 0IDLE     |   230 
+#  rd_data    |   155     |   155     |   230 
+#  full       |     0     |     0     |   230 
+#  empty      |     0     |     0     |   230 
+# almost_full |     1     |     1     |   230 
+# almost_emp  |     0     |     0     |   230 
+#  half_full  |     0     |     0     |   230 
+# ** Error:                  230 fail!! read pointer not working properly
+#    Time: 230 ns Started: 230 ns  Scope: tb.DUT.AUT.READ_PTR File: ../Assertion/assertion_fifo.sv Line: 119
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0IDLE     | 0IDLE     |   235 
+#  rd_data    |   155     |   155     |   235 
+#  full       |     0     |     0     |   235 
+#  empty      |     0     |     0     |   235 
+# almost_full |     1     |     1     |   235 
+# almost_emp  |     0     |     0     |   235 
+#  half_full  |     0     |     0     |   235 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0IDLE     | 0IDLE     |   245 
+#  rd_data    |   155     |   155     |   245 
+#  full       |     0     |     0     |   245 
+#  empty      |     0     |     0     |   245 
+# almost_full |     1     |     1     |   245 
+# almost_emp  |     0     |     0     |   245 
+#  half_full  |     0     |     0     |   245 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0READ     | 0IDLE     |   250 
+#  rd_data    |   239     |   239     |   250 
+#  full       |     0     |     0     |   250 
+#  empty      |     0     |     0     |   250 
+# almost_full |     0     |     0     |   250 
+# almost_emp  |     0     |     0     |   250 
+#  half_full  |     0     |     0     |   250 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0IDLE     | 0IDLE     |   255 
+#  rd_data    |   239     |   239     |   255 
+#  full       |     0     |     0     |   255 
+#  empty      |     0     |     0     |   255 
+# almost_full |     0     |     0     |   255 
+# almost_emp  |     0     |     0     |   255 
+#  half_full  |     0     |     0     |   255 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0IDLE     | 0IDLE     |   265 
+#  rd_data    |   239     |   239     |   265 
+#  full       |     0     |     0     |   265 
+#  empty      |     0     |     0     |   265 
+# almost_full |     0     |     0     |   265 
+# almost_emp  |     0     |     0     |   265 
+#  half_full  |     0     |     0     |   265 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0READ     | 0IDLE     |   270 
+#  rd_data    |    89     |    89     |   270 
+#  full       |     0     |     0     |   270 
+#  empty      |     0     |     0     |   270 
+# almost_full |     0     |     0     |   270 
+# almost_emp  |     0     |     0     |   270 
+#  half_full  |     0     |     0     |   270 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0IDLE     | 0IDLE     |   275 
+#  rd_data    |    89     |    89     |   275 
+#  full       |     0     |     0     |   275 
+#  empty      |     0     |     0     |   275 
+# almost_full |     0     |     0     |   275 
+# almost_emp  |     0     |     0     |   275 
+#  half_full  |     0     |     0     |   275 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0IDLE     | 0IDLE     |   285 
+#  rd_data    |    89     |    89     |   285 
+#  full       |     0     |     0     |   285 
+#  empty      |     0     |     0     |   285 
+# almost_full |     0     |     0     |   285 
+# almost_emp  |     0     |     0     |   285 
+#  half_full  |     0     |     0     |   285 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0READ     | 0IDLE     |   290 
+#  rd_data    |     1     |     1     |   290 
+#  full       |     0     |     0     |   290 
+#  empty      |     0     |     0     |   290 
+# almost_full |     0     |     0     |   290 
+# almost_emp  |     0     |     0     |   290 
+#  half_full  |     0     |     0     |   290 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0IDLE     | 0IDLE     |   295 
+#  rd_data    |     1     |     1     |   295 
+#  full       |     0     |     0     |   295 
+#  empty      |     0     |     0     |   295 
+# almost_full |     0     |     0     |   295 
+# almost_emp  |     0     |     0     |   295 
+#  half_full  |     0     |     0     |   295 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0IDLE     | 0IDLE     |   305 
+#  rd_data    |     1     |     1     |   305 
+#  full       |     0     |     0     |   305 
+#  empty      |     0     |     0     |   305 
+# almost_full |     0     |     0     |   305 
+# almost_emp  |     0     |     0     |   305 
+#  half_full  |     0     |     0     |   305 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0READ     | 0IDLE     |   310 
+#  rd_data    |   186     |   186     |   310 
+#  full       |     0     |     0     |   310 
+#  empty      |     0     |     0     |   310 
+# almost_full |     0     |     0     |   310 
+# almost_emp  |     0     |     0     |   310 
+#  half_full  |     0     |     0     |   310 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0IDLE     | 0IDLE     |   315 
+#  rd_data    |   186     |   186     |   315 
+#  full       |     0     |     0     |   315 
+#  empty      |     0     |     0     |   315 
+# almost_full |     0     |     0     |   315 
+# almost_emp  |     0     |     0     |   315 
+#  half_full  |     0     |     0     |   315 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0IDLE     | 0IDLE     |   325 
+#  rd_data    |   186     |   186     |   325 
+#  full       |     0     |     0     |   325 
+#  empty      |     0     |     0     |   325 
+# almost_full |     0     |     0     |   325 
+# almost_emp  |     0     |     0     |   325 
+#  half_full  |     0     |     0     |   325 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0READ     | 0IDLE     |   330 
+#  rd_data    |   236     |   236     |   330 
+#  full       |     0     |     0     |   330 
+#  empty      |     0     |     0     |   330 
+# almost_full |     0     |     0     |   330 
+# almost_emp  |     0     |     0     |   330 
+#  half_full  |     0     |     0     |   330 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0IDLE     | 0IDLE     |   335 
+#  rd_data    |   236     |   236     |   335 
+#  full       |     0     |     0     |   335 
+#  empty      |     0     |     0     |   335 
+# almost_full |     0     |     0     |   335 
+# almost_emp  |     0     |     0     |   335 
+#  half_full  |     0     |     0     |   335 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0IDLE     | 0IDLE     |   345 
+#  rd_data    |   236     |   236     |   345 
+#  full       |     0     |     0     |   345 
+#  empty      |     0     |     0     |   345 
+# almost_full |     0     |     0     |   345 
+# almost_emp  |     0     |     0     |   345 
+#  half_full  |     0     |     0     |   345 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0READ     | 0IDLE     |   350 
+#  rd_data    |   179     |   179     |   350 
+#  full       |     0     |     0     |   350 
+#  empty      |     0     |     0     |   350 
+# almost_full |     0     |     0     |   350 
+# almost_emp  |     0     |     0     |   350 
+#  half_full  |     0     |     0     |   350 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0IDLE     | 0IDLE     |   355 
+#  rd_data    |   179     |   179     |   355 
+#  full       |     0     |     0     |   355 
+#  empty      |     0     |     0     |   355 
+# almost_full |     0     |     0     |   355 
+# almost_emp  |     0     |     0     |   355 
+#  half_full  |     0     |     0     |   355 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0IDLE     | 0IDLE     |   365 
+#  rd_data    |   179     |   179     |   365 
+#  full       |     0     |     0     |   365 
+#  empty      |     0     |     0     |   365 
+# almost_full |     0     |     0     |   365 
+# almost_emp  |     0     |     0     |   365 
+#  half_full  |     0     |     0     |   365 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0READ     | 0IDLE     |   370 
+#  rd_data    |   107     |   107     |   370 
+#  full       |     0     |     0     |   370 
+#  empty      |     0     |     0     |   370 
+# almost_full |     0     |     0     |   370 
+# almost_emp  |     0     |     0     |   370 
+#  half_full  |     1     |     1     |   370 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0IDLE     | 0IDLE     |   375 
+#  rd_data    |   107     |   107     |   375 
+#  full       |     0     |     0     |   375 
+#  empty      |     0     |     0     |   375 
+# almost_full |     0     |     0     |   375 
+# almost_emp  |     0     |     0     |   375 
+#  half_full  |     1     |     1     |   375 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0IDLE     | 0IDLE     |   385 
+#  rd_data    |   107     |   107     |   385 
+#  full       |     0     |     0     |   385 
+#  empty      |     0     |     0     |   385 
+# almost_full |     0     |     0     |   385 
+# almost_emp  |     0     |     0     |   385 
+#  half_full  |     1     |     1     |   385 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0READ     | 0IDLE     |   390 
+#  rd_data    |    59     |    59     |   390 
+#  full       |     0     |     0     |   390 
+#  empty      |     0     |     0     |   390 
+# almost_full |     0     |     0     |   390 
+# almost_emp  |     0     |     0     |   390 
+#  half_full  |     0     |     0     |   390 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0IDLE     | 0IDLE     |   395 
+#  rd_data    |    59     |    59     |   395 
+#  full       |     0     |     0     |   395 
+#  empty      |     0     |     0     |   395 
+# almost_full |     0     |     0     |   395 
+# almost_emp  |     0     |     0     |   395 
+#  half_full  |     0     |     0     |   395 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0IDLE     | 0IDLE     |   405 
+#  rd_data    |    59     |    59     |   405 
+#  full       |     0     |     0     |   405 
+#  empty      |     0     |     0     |   405 
+# almost_full |     0     |     0     |   405 
+# almost_emp  |     0     |     0     |   405 
+#  half_full  |     0     |     0     |   405 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0READ     | 0IDLE     |   410 
+#  rd_data    |   184     |   184     |   410 
+#  full       |     0     |     0     |   410 
+#  empty      |     0     |     0     |   410 
+# almost_full |     0     |     0     |   410 
+# almost_emp  |     0     |     0     |   410 
+#  half_full  |     0     |     0     |   410 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0IDLE     | 0IDLE     |   415 
+#  rd_data    |   184     |   184     |   415 
+#  full       |     0     |     0     |   415 
+#  empty      |     0     |     0     |   415 
+# almost_full |     0     |     0     |   415 
+# almost_emp  |     0     |     0     |   415 
+#  half_full  |     0     |     0     |   415 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0IDLE     | 0IDLE     |   425 
+#  rd_data    |   184     |   184     |   425 
+#  full       |     0     |     0     |   425 
+#  empty      |     0     |     0     |   425 
+# almost_full |     0     |     0     |   425 
+# almost_emp  |     0     |     0     |   425 
+#  half_full  |     0     |     0     |   425 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0READ     | 0IDLE     |   430 
+#  rd_data    |   132     |   132     |   430 
+#  full       |     0     |     0     |   430 
+#  empty      |     0     |     0     |   430 
+# almost_full |     0     |     0     |   430 
+# almost_emp  |     0     |     0     |   430 
+#  half_full  |     0     |     0     |   430 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0IDLE     | 0IDLE     |   435 
+#  rd_data    |   132     |   132     |   435 
+#  full       |     0     |     0     |   435 
+#  empty      |     0     |     0     |   435 
+# almost_full |     0     |     0     |   435 
+# almost_emp  |     0     |     0     |   435 
+#  half_full  |     0     |     0     |   435 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0IDLE     | 0IDLE     |   445 
+#  rd_data    |   132     |   132     |   445 
+#  full       |     0     |     0     |   445 
+#  empty      |     0     |     0     |   445 
+# almost_full |     0     |     0     |   445 
+# almost_emp  |     0     |     0     |   445 
+#  half_full  |     0     |     0     |   445 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0READ     | 0IDLE     |   450 
+#  rd_data    |   145     |   145     |   450 
+#  full       |     0     |     0     |   450 
+#  empty      |     0     |     0     |   450 
+# almost_full |     0     |     0     |   450 
+# almost_emp  |     0     |     0     |   450 
+#  half_full  |     0     |     0     |   450 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0IDLE     | 0IDLE     |   455 
+#  rd_data    |   145     |   145     |   455 
+#  full       |     0     |     0     |   455 
+#  empty      |     0     |     0     |   455 
+# almost_full |     0     |     0     |   455 
+# almost_emp  |     0     |     0     |   455 
+#  half_full  |     0     |     0     |   455 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0IDLE     | 0IDLE     |   465 
+#  rd_data    |   145     |   145     |   465 
+#  full       |     0     |     0     |   465 
+#  empty      |     0     |     0     |   465 
+# almost_full |     0     |     0     |   465 
+# almost_emp  |     0     |     0     |   465 
+#  half_full  |     0     |     0     |   465 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0READ     | 0IDLE     |   470 
+#  rd_data    |    20     |    20     |   470 
+#  full       |     0     |     0     |   470 
+#  empty      |     0     |     0     |   470 
+# almost_full |     0     |     0     |   470 
+# almost_emp  |     0     |     0     |   470 
+#  half_full  |     0     |     0     |   470 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0IDLE     | 0IDLE     |   475 
+#  rd_data    |    20     |    20     |   475 
+#  full       |     0     |     0     |   475 
+#  empty      |     0     |     0     |   475 
+# almost_full |     0     |     0     |   475 
+# almost_emp  |     0     |     0     |   475 
+#  half_full  |     0     |     0     |   475 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0IDLE     | 0IDLE     |   485 
+#  rd_data    |    20     |    20     |   485 
+#  full       |     0     |     0     |   485 
+#  empty      |     0     |     0     |   485 
+# almost_full |     0     |     0     |   485 
+# almost_emp  |     0     |     0     |   485 
+#  half_full  |     0     |     0     |   485 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0READ     | 0IDLE     |   490 
+#  rd_data    |    49     |    49     |   490 
+#  full       |     0     |     0     |   490 
+#  empty      |     0     |     0     |   490 
+# almost_full |     0     |     0     |   490 
+# almost_emp  |     0     |     0     |   490 
+#  half_full  |     0     |     0     |   490 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0IDLE     | 0IDLE     |   495 
+#  rd_data    |    49     |    49     |   495 
+#  full       |     0     |     0     |   495 
+#  empty      |     0     |     0     |   495 
+# almost_full |     0     |     0     |   495 
+# almost_emp  |     0     |     0     |   495 
+#  half_full  |     0     |     0     |   495 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0IDLE     | 0IDLE     |   505 
+#  rd_data    |    49     |    49     |   505 
+#  full       |     0     |     0     |   505 
+#  empty      |     0     |     0     |   505 
+# almost_full |     0     |     0     |   505 
+# almost_emp  |     0     |     0     |   505 
+#  half_full  |     0     |     0     |   505 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0READ     | 0IDLE     |   510 
+#  rd_data    |   184     |   184     |   510 
+#  full       |     0     |     0     |   510 
+#  empty      |     0     |     0     |   510 
+# almost_full |     0     |     0     |   510 
+# almost_emp  |     1     |     1     |   510 
+#  half_full  |     0     |     0     |   510 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0IDLE     | 0IDLE     |   515 
+#  rd_data    |   184     |   184     |   515 
+#  full       |     0     |     0     |   515 
+#  empty      |     0     |     0     |   515 
+# almost_full |     0     |     0     |   515 
+# almost_emp  |     1     |     1     |   515 
+#  half_full  |     0     |     0     |   515 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0IDLE     | 0IDLE     |   525 
+#  rd_data    |   184     |   184     |   525 
+#  full       |     0     |     0     |   525 
+#  empty      |     0     |     0     |   525 
+# almost_full |     0     |     0     |   525 
+# almost_emp  |     1     |     1     |   525 
+#  half_full  |     0     |     0     |   525 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0READ     | 0IDLE     |   530 
+#  rd_data    |   204     |   204     |   530 
+#  full       |     0     |     0     |   530 
+#  empty      |     1     |     1     |   530 
+# almost_full |     0     |     0     |   530 
+# almost_emp  |     0     |     0     |   530 
+#  half_full  |     0     |     0     |   530 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0IDLE     | 0IDLE     |   535 
+#  rd_data    |   204     |   204     |   535 
+#  full       |     0     |     0     |   535 
+#  empty      |     1     |     1     |   535 
+# almost_full |     0     |     0     |   535 
+# almost_emp  |     0     |     0     |   535 
+#  half_full  |     0     |     0     |   535 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0IDLE     | 0IDLE     |   545 
+#  rd_data    |   204     |   204     |   545 
+#  full       |     0     |     0     |   545 
+#  empty      |     1     |     1     |   545 
+# almost_full |     0     |     0     |   545 
+# almost_emp  |     0     |     0     |   545 
+#  half_full  |     0     |     0     |   545 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0READ     | 0IDLE     |   550 
+#  rd_data    |   204     |   204     |   550 
+#  full       |     0     |     0     |   550 
+#  empty      |     1     |     1     |   550 
+# almost_full |     0     |     0     |   550 
+# almost_emp  |     0     |     0     |   550 
+#  half_full  |     0     |     0     |   550 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0IDLE     | 0IDLE     |   555 
+#  rd_data    |   204     |   204     |   555 
+#  full       |     0     |     0     |   555 
+#  empty      |     1     |     1     |   555 
+# almost_full |     0     |     0     |   555 
+# almost_emp  |     0     |     0     |   555 
+#  half_full  |     0     |     0     |   555 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0IDLE     | 0IDLE     |   565 
+#  rd_data    |   204     |   204     |   565 
+#  full       |     0     |     0     |   565 
+#  empty      |     1     |     1     |   565 
+# almost_full |     0     |     0     |   565 
+# almost_emp  |     0     |     0     |   565 
+#  half_full  |     0     |     0     |   565 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0READ     | 0IDLE     |   570 
+#  rd_data    |   204     |   204     |   570 
+#  full       |     0     |     0     |   570 
+#  empty      |     1     |     1     |   570 
+# almost_full |     0     |     0     |   570 
+# almost_emp  |     0     |     0     |   570 
+#  half_full  |     0     |     0     |   570 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0IDLE     | 0IDLE     |   575 
+#  rd_data    |   204     |   204     |   575 
+#  full       |     0     |     0     |   575 
+#  empty      |     1     |     1     |   575 
+# almost_full |     0     |     0     |   575 
+# almost_emp  |     0     |     0     |   575 
+#  half_full  |     0     |     0     |   575 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0IDLE     | 0IDLE     |   585 
+#  rd_data    |   204     |   204     |   585 
+#  full       |     0     |     0     |   585 
+#  empty      |     1     |     1     |   585 
+# almost_full |     0     |     0     |   585 
+# almost_emp  |     0     |     0     |   585 
+#  half_full  |     0     |     0     |   585 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0READ     | 0IDLE     |   590 
+#  rd_data    |   204     |   204     |   590 
+#  full       |     0     |     0     |   590 
+#  empty      |     1     |     1     |   590 
+# almost_full |     0     |     0     |   590 
+# almost_emp  |     0     |     0     |   590 
+#  half_full  |     0     |     0     |   590 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0IDLE     | 0IDLE     |   595 
+#  rd_data    |   204     |   204     |   595 
+#  full       |     0     |     0     |   595 
+#  empty      |     1     |     1     |   595 
+# almost_full |     0     |     0     |   595 
+# almost_emp  |     0     |     0     |   595 
+#  half_full  |     0     |     0     |   595 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | WRITE     | 0IDLE     |   605 
+#  rd_data    |   204     |   204     |   605 
+#  full       |     0     |     0     |   605 
+#  empty      |     0     |     0     |   605 
+# almost_full |     0     |     0     |   605 
+# almost_emp  |     1     |     1     |   605 
+#  half_full  |     0     |     0     |   605 
+# ** Error:                  605 fail!! write pointer not working properly
+#    Time: 605 ns Started: 605 ns  Scope: tb.DUT.AUT.WRITE_PTR File: ../Assertion/assertion_fifo.sv Line: 114
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0IDLE     | 0IDLE     |   610 
+#  rd_data    |   204     |   204     |   610 
+#  full       |     0     |     0     |   610 
+#  empty      |     0     |     0     |   610 
+# almost_full |     0     |     0     |   610 
+# almost_emp  |     1     |     1     |   610 
+#  half_full  |     0     |     0     |   610 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | WRITE     | 0IDLE     |   615 
+#  rd_data    |   204     |   204     |   615 
+#  full       |     0     |     0     |   615 
+#  empty      |     0     |     0     |   615 
+# almost_full |     0     |     0     |   615 
+# almost_emp  |     0     |     0     |   615 
+#  half_full  |     0     |     0     |   615 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | WRITE     | 0IDLE     |   625 
+#  rd_data    |   204     |   204     |   625 
+#  full       |     0     |     0     |   625 
+#  empty      |     0     |     0     |   625 
+# almost_full |     0     |     0     |   625 
+# almost_emp  |     0     |     0     |   625 
+#  half_full  |     0     |     0     |   625 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0READ     | 0IDLE     |   630 
+#  rd_data    |   179     |   179     |   630 
+#  full       |     0     |     0     |   630 
+#  empty      |     0     |     0     |   630 
+# almost_full |     0     |     0     |   630 
+# almost_emp  |     0     |     0     |   630 
+#  half_full  |     0     |     0     |   630 
+# ** Error:                  630 fail!! read pointer not working properly
+#    Time: 630 ns Started: 630 ns  Scope: tb.DUT.AUT.READ_PTR File: ../Assertion/assertion_fifo.sv Line: 119
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | WRITE     | 0IDLE     |   635 
+#  rd_data    |   179     |   179     |   635 
+#  full       |     0     |     0     |   635 
+#  empty      |     0     |     0     |   635 
+# almost_full |     0     |     0     |   635 
+# almost_emp  |     0     |     0     |   635 
+#  half_full  |     0     |     0     |   635 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | WRITE     | 0IDLE     |   645 
+#  rd_data    |   179     |   179     |   645 
+#  full       |     0     |     0     |   645 
+#  empty      |     0     |     0     |   645 
+# almost_full |     0     |     0     |   645 
+# almost_emp  |     0     |     0     |   645 
+#  half_full  |     0     |     0     |   645 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0IDLE     | 0IDLE     |   650 
+#  rd_data    |   179     |   179     |   650 
+#  full       |     0     |     0     |   650 
+#  empty      |     0     |     0     |   650 
+# almost_full |     0     |     0     |   650 
+# almost_emp  |     0     |     0     |   650 
+#  half_full  |     0     |     0     |   650 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | WRITE     | 0IDLE     |   655 
+#  rd_data    |   179     |   179     |   655 
+#  full       |     0     |     0     |   655 
+#  empty      |     0     |     0     |   655 
+# almost_full |     0     |     0     |   655 
+# almost_emp  |     0     |     0     |   655 
+#  half_full  |     0     |     0     |   655 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | WRITE     | 0IDLE     |   665 
+#  rd_data    |   179     |   179     |   665 
+#  full       |     0     |     0     |   665 
+#  empty      |     0     |     0     |   665 
+# almost_full |     0     |     0     |   665 
+# almost_emp  |     0     |     0     |   665 
+#  half_full  |     0     |     0     |   665 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0IDLE     | 0IDLE     |   670 
+#  rd_data    |   179     |   179     |   670 
+#  full       |     0     |     0     |   670 
+#  empty      |     0     |     0     |   670 
+# almost_full |     0     |     0     |   670 
+# almost_emp  |     0     |     0     |   670 
+#  half_full  |     0     |     0     |   670 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | WRITE     | 0IDLE     |   675 
+#  rd_data    |   179     |   179     |   675 
+#  full       |     0     |     0     |   675 
+#  empty      |     0     |     0     |   675 
+# almost_full |     0     |     0     |   675 
+# almost_emp  |     0     |     0     |   675 
+#  half_full  |     0     |     0     |   675 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | WRITE     | 0IDLE     |   685 
+#  rd_data    |   179     |   179     |   685 
+#  full       |     0     |     0     |   685 
+#  empty      |     0     |     0     |   685 
+# almost_full |     0     |     0     |   685 
+# almost_emp  |     0     |     0     |   685 
+#  half_full  |     1     |     1     |   685 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0IDLE     | 0IDLE     |   690 
+#  rd_data    |   179     |   179     |   690 
+#  full       |     0     |     0     |   690 
+#  empty      |     0     |     0     |   690 
+# almost_full |     0     |     0     |   690 
+# almost_emp  |     0     |     0     |   690 
+#  half_full  |     1     |     1     |   690 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | WRITE     | 0IDLE     |   695 
+#  rd_data    |   179     |   179     |   695 
+#  full       |     0     |     0     |   695 
+#  empty      |     0     |     0     |   695 
+# almost_full |     0     |     0     |   695 
+# almost_emp  |     0     |     0     |   695 
+#  half_full  |     0     |     0     |   695 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | WRITE     | 0IDLE     |   705 
+#  rd_data    |   179     |   179     |   705 
+#  full       |     0     |     0     |   705 
+#  empty      |     0     |     0     |   705 
+# almost_full |     0     |     0     |   705 
+# almost_emp  |     0     |     0     |   705 
+#  half_full  |     0     |     0     |   705 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0IDLE     | 0IDLE     |   710 
+#  rd_data    |   179     |   179     |   710 
+#  full       |     0     |     0     |   710 
+#  empty      |     0     |     0     |   710 
+# almost_full |     0     |     0     |   710 
+# almost_emp  |     0     |     0     |   710 
+#  half_full  |     0     |     0     |   710 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | WRITE     | 0IDLE     |   715 
+#  rd_data    |   179     |   179     |   715 
+#  full       |     0     |     0     |   715 
+#  empty      |     0     |     0     |   715 
+# almost_full |     0     |     0     |   715 
+# almost_emp  |     0     |     0     |   715 
+#  half_full  |     0     |     0     |   715 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0IDLE     | 0IDLE     |   725 
+#  rd_data    |   179     |   179     |   725 
+#  full       |     0     |     0     |   725 
+#  empty      |     0     |     0     |   725 
+# almost_full |     0     |     0     |   725 
+# almost_emp  |     0     |     0     |   725 
+#  half_full  |     0     |     0     |   725 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0IDLE     | 0IDLE     |   730 
+#  rd_data    |   179     |   179     |   730 
+#  full       |     0     |     0     |   730 
+#  empty      |     0     |     0     |   730 
+# almost_full |     0     |     0     |   730 
+# almost_emp  |     0     |     0     |   730 
+#  half_full  |     0     |     0     |   730 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0IDLE     | 0IDLE     |   735 
+#  rd_data    |   179     |   179     |   735 
+#  full       |     0     |     0     |   735 
+#  empty      |     0     |     0     |   735 
+# almost_full |     0     |     0     |   735 
+# almost_emp  |     0     |     0     |   735 
+#  half_full  |     0     |     0     |   735 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0IDLE     | 0IDLE     |   745 
+#  rd_data    |   179     |   179     |   745 
+#  full       |     0     |     0     |   745 
+#  empty      |     0     |     0     |   745 
+# almost_full |     0     |     0     |   745 
+# almost_emp  |     0     |     0     |   745 
+#  half_full  |     0     |     0     |   745 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0IDLE     | 0IDLE     |   750 
+#  rd_data    |   179     |   179     |   750 
+#  full       |     0     |     0     |   750 
+#  empty      |     0     |     0     |   750 
+# almost_full |     0     |     0     |   750 
+# almost_emp  |     0     |     0     |   750 
+#  half_full  |     0     |     0     |   750 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0IDLE     | 0IDLE     |   755 
+#  rd_data    |   179     |   179     |   755 
+#  full       |     0     |     0     |   755 
+#  empty      |     0     |     0     |   755 
+# almost_full |     0     |     0     |   755 
+# almost_emp  |     0     |     0     |   755 
+#  half_full  |     0     |     0     |   755 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0IDLE     | 0IDLE     |   765 
+#  rd_data    |   179     |   179     |   765 
+#  full       |     0     |     0     |   765 
+#  empty      |     0     |     0     |   765 
+# almost_full |     0     |     0     |   765 
+# almost_emp  |     0     |     0     |   765 
+#  half_full  |     0     |     0     |   765 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0IDLE     | 0IDLE     |   770 
+#  rd_data    |   179     |   179     |   770 
+#  full       |     0     |     0     |   770 
+#  empty      |     0     |     0     |   770 
+# almost_full |     0     |     0     |   770 
+# almost_emp  |     0     |     0     |   770 
+#  half_full  |     0     |     0     |   770 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0IDLE     | 0IDLE     |   775 
+#  rd_data    |   179     |   179     |   775 
+#  full       |     0     |     0     |   775 
+#  empty      |     0     |     0     |   775 
+# almost_full |     0     |     0     |   775 
+# almost_emp  |     0     |     0     |   775 
+#  half_full  |     0     |     0     |   775 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0IDLE     | 0IDLE     |   785 
+#  rd_data    |   179     |   179     |   785 
+#  full       |     0     |     0     |   785 
+#  empty      |     0     |     0     |   785 
+# almost_full |     0     |     0     |   785 
+# almost_emp  |     0     |     0     |   785 
+#  half_full  |     0     |     0     |   785 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0IDLE     | 0IDLE     |   790 
+#  rd_data    |   179     |   179     |   790 
+#  full       |     0     |     0     |   790 
+#  empty      |     0     |     0     |   790 
+# almost_full |     0     |     0     |   790 
+# almost_emp  |     0     |     0     |   790 
+#  half_full  |     0     |     0     |   790 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0IDLE     | 0IDLE     |   795 
+#  rd_data    |   179     |   179     |   795 
+#  full       |     0     |     0     |   795 
+#  empty      |     0     |     0     |   795 
+# almost_full |     0     |     0     |   795 
+# almost_emp  |     0     |     0     |   795 
+#  half_full  |     0     |     0     |   795 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0IDLE     | 0IDLE     |   805 
+#  rd_data    |   179     |   179     |   805 
+#  full       |     0     |     0     |   805 
+#  empty      |     0     |     0     |   805 
+# almost_full |     0     |     0     |   805 
+# almost_emp  |     0     |     0     |   805 
+#  half_full  |     0     |     0     |   805 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0IDLE     | 0IDLE     |   810 
+#  rd_data    |   179     |   179     |   810 
+#  full       |     0     |     0     |   810 
+#  empty      |     0     |     0     |   810 
+# almost_full |     0     |     0     |   810 
+# almost_emp  |     0     |     0     |   810 
+#  half_full  |     0     |     0     |   810 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0IDLE     | 0IDLE     |   815 
+#  rd_data    |   179     |   179     |   815 
+#  full       |     0     |     0     |   815 
+#  empty      |     0     |     0     |   815 
+# almost_full |     0     |     0     |   815 
+# almost_emp  |     0     |     0     |   815 
+#  half_full  |     0     |     0     |   815 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0IDLE     | 0IDLE     |   825 
+#  rd_data    |   179     |   179     |   825 
+#  full       |     0     |     0     |   825 
+#  empty      |     0     |     0     |   825 
+# almost_full |     0     |     0     |   825 
+# almost_emp  |     0     |     0     |   825 
+#  half_full  |     0     |     0     |   825 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0IDLE     | 0IDLE     |   830 
+#  rd_data    |   179     |   179     |   830 
+#  full       |     0     |     0     |   830 
+#  empty      |     0     |     0     |   830 
+# almost_full |     0     |     0     |   830 
+# almost_emp  |     0     |     0     |   830 
+#  half_full  |     0     |     0     |   830 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0IDLE     | 0IDLE     |   835 
+#  rd_data    |   179     |   179     |   835 
+#  full       |     0     |     0     |   835 
+#  empty      |     0     |     0     |   835 
+# almost_full |     0     |     0     |   835 
+# almost_emp  |     0     |     0     |   835 
+#  half_full  |     0     |     0     |   835 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0IDLE     | 0IDLE     |   845 
+#  rd_data    |   179     |   179     |   845 
+#  full       |     0     |     0     |   845 
+#  empty      |     0     |     0     |   845 
+# almost_full |     0     |     0     |   845 
+# almost_emp  |     0     |     0     |   845 
+#  half_full  |     0     |     0     |   845 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0IDLE     | 0IDLE     |   850 
+#  rd_data    |   179     |   179     |   850 
+#  full       |     0     |     0     |   850 
+#  empty      |     0     |     0     |   850 
+# almost_full |     0     |     0     |   850 
+# almost_emp  |     0     |     0     |   850 
+#  half_full  |     0     |     0     |   850 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0IDLE     | 0IDLE     |   855 
+#  rd_data    |   179     |   179     |   855 
+#  full       |     0     |     0     |   855 
+#  empty      |     0     |     0     |   855 
+# almost_full |     0     |     0     |   855 
+# almost_emp  |     0     |     0     |   855 
+#  half_full  |     0     |     0     |   855 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0IDLE     | 0IDLE     |   865 
+#  rd_data    |   179     |   179     |   865 
+#  full       |     0     |     0     |   865 
+#  empty      |     0     |     0     |   865 
+# almost_full |     0     |     0     |   865 
+# almost_emp  |     0     |     0     |   865 
+#  half_full  |     0     |     0     |   865 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0IDLE     | 0IDLE     |   870 
+#  rd_data    |   179     |   179     |   870 
+#  full       |     0     |     0     |   870 
+#  empty      |     0     |     0     |   870 
+# almost_full |     0     |     0     |   870 
+# almost_emp  |     0     |     0     |   870 
+#  half_full  |     0     |     0     |   870 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0IDLE     | 0IDLE     |   875 
+#  rd_data    |   179     |   179     |   875 
+#  full       |     0     |     0     |   875 
+#  empty      |     0     |     0     |   875 
+# almost_full |     0     |     0     |   875 
+# almost_emp  |     0     |     0     |   875 
+#  half_full  |     0     |     0     |   875 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0IDLE     | 0IDLE     |   885 
+#  rd_data    |   179     |   179     |   885 
+#  full       |     0     |     0     |   885 
+#  empty      |     0     |     0     |   885 
+# almost_full |     0     |     0     |   885 
+# almost_emp  |     0     |     0     |   885 
+#  half_full  |     0     |     0     |   885 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0IDLE     | 0IDLE     |   890 
+#  rd_data    |   179     |   179     |   890 
+#  full       |     0     |     0     |   890 
+#  empty      |     0     |     0     |   890 
+# almost_full |     0     |     0     |   890 
+# almost_emp  |     0     |     0     |   890 
+#  half_full  |     0     |     0     |   890 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0IDLE     | 0IDLE     |   895 
+#  rd_data    |   179     |   179     |   895 
+#  full       |     0     |     0     |   895 
+#  empty      |     0     |     0     |   895 
+# almost_full |     0     |     0     |   895 
+# almost_emp  |     0     |     0     |   895 
+#  half_full  |     0     |     0     |   895 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0IDLE     | 0IDLE     |   905 
+#  rd_data    |   179     |   179     |   905 
+#  full       |     0     |     0     |   905 
+#  empty      |     0     |     0     |   905 
+# almost_full |     0     |     0     |   905 
+# almost_emp  |     0     |     0     |   905 
+#  half_full  |     0     |     0     |   905 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0IDLE     | 0IDLE     |   910 
+#  rd_data    |   179     |   179     |   910 
+#  full       |     0     |     0     |   910 
+#  empty      |     0     |     0     |   910 
+# almost_full |     0     |     0     |   910 
+# almost_emp  |     0     |     0     |   910 
+#  half_full  |     0     |     0     |   910 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0IDLE     | 0IDLE     |   915 
+#  rd_data    |   179     |   179     |   915 
+#  full       |     0     |     0     |   915 
+#  empty      |     0     |     0     |   915 
+# almost_full |     0     |     0     |   915 
+# almost_emp  |     0     |     0     |   915 
+#  half_full  |     0     |     0     |   915 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0IDLE     | 0IDLE     |   925 
+#  rd_data    |   179     |   179     |   925 
+#  full       |     0     |     0     |   925 
+#  empty      |     0     |     0     |   925 
+# almost_full |     0     |     0     |   925 
+# almost_emp  |     0     |     0     |   925 
+#  half_full  |     0     |     0     |   925 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0IDLE     | 0IDLE     |   930 
+#  rd_data    |   179     |   179     |   930 
+#  full       |     0     |     0     |   930 
+#  empty      |     0     |     0     |   930 
+# almost_full |     0     |     0     |   930 
+# almost_emp  |     0     |     0     |   930 
+#  half_full  |     0     |     0     |   930 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0IDLE     | 0IDLE     |   935 
+#  rd_data    |   179     |   179     |   935 
+#  full       |     0     |     0     |   935 
+#  empty      |     0     |     0     |   935 
+# almost_full |     0     |     0     |   935 
+# almost_emp  |     0     |     0     |   935 
+#  half_full  |     0     |     0     |   935 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0IDLE     | 0IDLE     |   945 
+#  rd_data    |   179     |   179     |   945 
+#  full       |     0     |     0     |   945 
+#  empty      |     0     |     0     |   945 
+# almost_full |     0     |     0     |   945 
+# almost_emp  |     0     |     0     |   945 
+#  half_full  |     0     |     0     |   945 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0IDLE     | 0IDLE     |   950 
+#  rd_data    |   179     |   179     |   950 
+#  full       |     0     |     0     |   950 
+#  empty      |     0     |     0     |   950 
+# almost_full |     0     |     0     |   950 
+# almost_emp  |     0     |     0     |   950 
+#  half_full  |     0     |     0     |   950 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0IDLE     | 0IDLE     |   955 
+#  rd_data    |   179     |   179     |   955 
+#  full       |     0     |     0     |   955 
+#  empty      |     0     |     0     |   955 
+# almost_full |     0     |     0     |   955 
+# almost_emp  |     0     |     0     |   955 
+#  half_full  |     0     |     0     |   955 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0IDLE     | 0IDLE     |   965 
+#  rd_data    |   179     |   179     |   965 
+#  full       |     0     |     0     |   965 
+#  empty      |     0     |     0     |   965 
+# almost_full |     0     |     0     |   965 
+# almost_emp  |     0     |     0     |   965 
+#  half_full  |     0     |     0     |   965 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0IDLE     | 0IDLE     |   970 
+#  rd_data    |   179     |   179     |   970 
+#  full       |     0     |     0     |   970 
+#  empty      |     0     |     0     |   970 
+# almost_full |     0     |     0     |   970 
+# almost_emp  |     0     |     0     |   970 
+#  half_full  |     0     |     0     |   970 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0IDLE     | 0IDLE     |   975 
+#  rd_data    |   179     |   179     |   975 
+#  full       |     0     |     0     |   975 
+#  empty      |     0     |     0     |   975 
+# almost_full |     0     |     0     |   975 
+# almost_emp  |     0     |     0     |   975 
+#  half_full  |     0     |     0     |   975 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0IDLE     | 0IDLE     |   985 
+#  rd_data    |   179     |   179     |   985 
+#  full       |     0     |     0     |   985 
+#  empty      |     0     |     0     |   985 
+# almost_full |     0     |     0     |   985 
+# almost_emp  |     0     |     0     |   985 
+#  half_full  |     0     |     0     |   985 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0IDLE     | 0IDLE     |   990 
+#  rd_data    |   179     |   179     |   990 
+#  full       |     0     |     0     |   990 
+#  empty      |     0     |     0     |   990 
+# almost_full |     0     |     0     |   990 
+# almost_emp  |     0     |     0     |   990 
+#  half_full  |     0     |     0     |   990 
+# 
+# --------Score_board_display-----------------
+#  sig Name   | act Value | exp value |time
+# trans_kind  | 0IDLE     | 0IDLE     |   995 
+#  rd_data    |   179     |   179     |   995 
+#  full       |     0     |     0     |   995 
+#  empty      |     0     |     0     |   995 
+# almost_full |     0     |     0     |   995 
+# almost_emp  |     0     |     0     |   995 
+#  half_full  |     0     |     0     |   995 
+# ** Note: $finish    : ../TOP/top.sv(67)
+#    Time: 1005 ns  Iteration: 0  Instance: /tb
+# 1
+# Break in Module tb at ../TOP/top.sv line 67
+# coverage :- 83.33333333333333
+# End time: 20:22:12 on Jun 01,2023, Elapsed time: 0:15:40
+# Errors: 4, Warnings: 4

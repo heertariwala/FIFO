@@ -1,0 +1,145 @@
+
+`define DEPTH 16
+`define ADDR_WIDTH 4
+`define WR_CLK_PERIOD 10
+`define RD_CLK_PERIOD 20
+
+module assertion_fifo( input                  wr_clk ,rd_clk ,
+					   input [`ADDR_WIDTH:0]  wr_ptr ,rd_ptr ,
+                       input    	    	  wr_enb ,rd_enb ,
+				                              rstn   ,full   ,
+			      				 			  empty  ,almost_full ,
+		              				          almost_empty,	 half_full ,    							
+							 output 			reg       out
+		     	      );
+
+
+    property wr_clk_freq_pr;
+			time T_on;		
+			@(posedge wr_clk)(1 , T_on = $time ) ##1 (($time - T_on) == `WR_CLK_PERIOD ) ;
+	endproperty
+
+
+    property rd_clk_freq_pr;
+			time T_on;		
+			@(posedge rd_clk)(1 , T_on = $time ) ##1 (($time - T_on) == `RD_CLK_PERIOD ) ;
+	endproperty
+
+								
+
+    // checking write pointer increment properly.
+	property  wr_ptr_pr; 
+			// if write enable is on , full flag is off and rtn is off than
+			// pointer should increament by one
+
+			@(posedge wr_clk) ( wr_enb && !full && rstn ) |-> (wr_ptr == $past(wr_ptr , 1) + 1) ; 
+
+	endproperty
+
+
+
+    // checking read pointer increment properly.
+	 property rd_ptr_pr;
+			// if read enable , empty flag is off and rstn is off  than pointer
+			// shuld increament by one 
+
+			@(posedge rd_clk) (rd_enb && !empty && rstn ) |-> (rd_ptr == $past(rd_ptr , 1) + 1);
+
+	endproperty
+
+
+
+	property full_flag_pr; 
+			//checking full signal 	
+
+			 @(posedge wr_clk) ( full ) |-> ({ ( ~wr_ptr[`ADDR_WIDTH ]) , wr_ptr[`ADDR_WIDTH-1 : 0 ]}  ==  rd_ptr);
+
+	endproperty
+
+
+
+	property empty_flag_pr;
+      // checking empty sinal
+			
+	  @(posedge rd_clk) (empty) |-> ( wr_ptr  ==   rd_ptr ) ;
+
+	endproperty
+
+	// almost full
+	property almost_full_flag_pr; 
+			//checking full signal 	
+
+			 @(posedge wr_clk , posedge rd_clk) ( almost_full ) |-> ( ((wr_ptr - rd_ptr) == (`DEPTH-1)) || ((rd_ptr - wr_ptr) == (`DEPTH+1) ) );
+
+	endproperty
+
+	property almost_empty_flag_pr; 
+			//checking full signal 	
+
+			 @(posedge wr_clk , posedge rd_clk) ( almost_empty ) |-> ( ((wr_ptr - rd_ptr) == (1)) || ((rd_ptr - wr_ptr) == (2*`DEPTH-1) ) );
+
+	endproperty
+
+
+
+
+	property rstn_pr ;
+		// at reset pointer should be zero and empty should be one
+		@(posedge rd_clk , posedge wr_clk) (!rstn) |->  (empty &&  (wr_ptr == 0 ) && (rd_ptr == 0 ));
+	endproperty
+  
+
+
+  
+	
+
+
+
+
+
+
+
+
+  // asert sequence for wr clk
+	WR_CLK_FREQ : assert property(wr_clk_freq_pr)
+				  else
+ 					 $error($time , "Fail !! , wr clk frequency ");
+
+	RD_CLK_FREQ : assert property(rd_clk_freq_pr)
+				  else
+					 $error($time , "Fail !! , rd clk frequency ");
+
+  WRITE_PTR: assert property ( wr_ptr_pr )
+          	else begin
+           		 $error($time ," fail!! write pointer not working properly");  end
+ 
+    // asert property for wr clk 
+  READ_PTR: assert property ( rd_ptr_pr )
+          	else 
+         			$error($time ," fail!! read pointer not working properly");
+
+ // asert property for full flag  
+  FULL_FLAG :assert property ( full_flag_pr )
+             else 
+           			$error($time ," fail!! full_flag  not working properly");
+ 
+  // asert property for empty flag
+  EMPTY_FLAG :assert property ( empty_flag_pr )
+	            else 
+        		   	$error($time ," fail!! empty_flag not working properly");
+
+  ALMOST_FULL_FLAG : assert	property( almost_empty_flag_pr )
+  				        else
+							$error($time , "almost_full_flag not working properly " );
+
+  ALMOST_EMPTY_FLAG: assert property ( almost_empty_flag_pr)
+						else
+							$error($time , "almost_empty_flag not working properly ");	
+
+   
+  RESET : assert property ( rstn_pr )
+	        else 
+  					$error($time , "fail!! rstn not working properly ");
+		
+       
+endmodule

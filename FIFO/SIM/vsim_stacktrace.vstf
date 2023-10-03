@@ -1,0 +1,86 @@
+# Current time Mon May 08 22:27:27 2023
+# Program = vsim
+# Id = "10.4e"
+# Version = "2016.04"
+# Date = "Apr  9 2016"
+# Platform = win64
+# Signature = 51a056345942860ec1e5920e3c0e5733
+# End of Stack Trace
+
+
+# Current time Wed May 10 23:12:09 2023
+# Program = vsim
+# Id = "10.4e"
+# Version = "2016.04"
+# Date = "Apr  9 2016"
+# Platform = win64
+# Signature = 51a056345942860ec1e5920e3c0e5733
+# End of Stack Trace
+
+
+# Current time Sun May 14 10:05:31 2023
+# Program = vsim
+# Id = "10.4e"
+# Version = "2016.04"
+# Date = "Apr  9 2016"
+# Platform = win64
+# Signature = 51a056345942860ec1e5920e3c0e5733
+# --> START OF USERCODE
+# 0    0x0000000074d7e5fb: 'memset + 0x7b' in 'c:\windows\winsxs\amd64_microsoft.vc90.crt_1fc8b3b9a1e18e3b_9.0.30729.9625_none_08e1c10da83fbc83\msvcr90.dll'
+# <-- END OF USERCODE
+# 1    0x00000001403a3427: '<unknown (@0x1403a3427)>'
+# 2    0x000000014012a459: '<unknown (@0x14012a459)>'
+# 3    0x0000000140133751: '<unknown (@0x140133751)>'
+# 4    0x0000000140f06fed: '<unknown (@0x140f06fed)>'
+# 5    0x00000001400012a9: '<unknown (@0x1400012a9)>'
+# 6    0x000000014013c6b7: '<unknown (@0x14013c6b7)>'
+# 7    0x0000000140141fca: '<unknown (@0x140141fca)>'
+# 8    0x0000000140142153: '<unknown (@0x140142153)>'
+# 9    0x00000001403f9036: '<unknown (@0x1403f9036)>'
+# 10   0x0000000140537079: '<unknown (@0x140537079)>'
+# 11   0x00007ff88db28b47: 'RtlDeleteAce + 0x3c7' in 'c:\windows\system32\ntdll.dll'
+# 12   0x00007ff88db012c1: 'RtlRaiseException + 0x251' in 'c:\windows\system32\ntdll.dll'
+# 13   0x00007ff88db50f09: 'KiUserExceptionDispatcher + 0x29' in 'c:\windows\system32\ntdll.dll'
+# 14   0x00000001403a33ca: '<unknown (@0x1403a33ca)>'
+# 15   0x00000001400f7d53: '<unknown (@0x1400f7d53)>'
+# 16   0x00000001400f8225: '<unknown (@0x1400f8225)>'
+# 17   0x00000001400f8d25: '<unknown (@0x1400f8d25)>'
+# 18   0x00007ff4f60bb8b7: '../ENV/monitor.sv:43'
+# 19   0x00007ff4f60c4b4e: '../ENV/env.sv:41'
+# 20   0x000000014000106a: '<unknown (@0x14000106a)>'
+# 21   0x00000001400202e3: '<unknown (@0x1400202e3)>'
+# 22   0x0000000140126060: '<unknown (@0x140126060)>'
+# 23   0x000000014055aa53: '<unknown (@0x14055aa53)>'
+# End of Stack Trace
+
+
+# Current time Tue May 23 22:23:35 2023
+# Program = vsim
+# Id = "10.4e"
+# Version = "2016.04"
+# Date = "Apr  9 2016"
+# Platform = win64
+# Signature = 51a056345942860ec1e5920e3c0e5733
+# End of Stack Trace
+
+
+# Current time Tue May 23 22:23:35 2023
+# Program = vsim
+# Id = "10.4e"
+# Version = "2016.04"
+# Date = "Apr  9 2016"
+# Platform = win64
+# Signature = 51a056345942860ec1e5920e3c0e5733
+# End of Stack Trace
+
+
+# Current time Tue May 23 22:27:39 2023
+# Program = vsim
+# Id = "10.4e"
+# Version = "2016.04"
+# Date = "Apr  9 2016"
+# Platform = win64
+# Signature = 51a056345942860ec1e5920e3c0e5733
+# End of Stack Trace
+
+

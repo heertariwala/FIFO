@@ -1,0 +1,11 @@
+QuestaSim-64 vcover 10.4e Coverage Utility 2016.04 Apr  9 2016
+Start time: 00:13:53 on Jun 01,2023
+vcover merge fifo.ucdb NORMAL_WRITE_READ.ucdb RSTN_DRN_OPN_TC.ucdb SIMULTANEOUS_TC.ucdb B2B_TC.ucdb 
+Merging file NORMAL_WRITE_READ.ucdb
+Merging file RSTN_DRN_OPN_TC.ucdb
+Merging file SIMULTANEOUS_TC.ucdb
+Merging file B2B_TC.ucdb
+Writing merged result to fifo.ucdb
+
+End time: 00:13:53 on Jun 01,2023, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0

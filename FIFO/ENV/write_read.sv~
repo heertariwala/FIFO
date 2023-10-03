@@ -1,0 +1,13 @@
+class write_read extends gen;
+     
+     function new(virtual fifo_inf.DRIVER vif_drv ,
+                     virtual fifo_inf.MONITOR vif_mon);
+	     super.new(.vif_mon(vif_mon) , .vif_drv(vif_drv));
+     endfunction
+
+     repeat(10)begin
+	     trans_h = new();
+	     assert(trans_h.randomize() with {rstn == 1 ;});
+	     put_gen_drv();
+     end
+endclass

@@ -1,0 +1,178 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Indicus/system verilog/FIFO/SIM
+vassertion_fifo
+Z1 DXx6 sv_std 3 std 0 22 WmjPaeP=7F5?QFXzJ>D[Q2
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+r1
+!s85 0
+31
+!i10b 1
+!s100 BGoW<Z?@=M;?]zOYUCaET3
+I4o2BmYMP6`cQmozeWJ09E0
+!s105 assertion_fifo_sv_unit
+S1
+Z3 dG:/FIFO/FIFO/SIM
+w1685252893
+8..\Assertion\assertion_fifo.sv
+F..\Assertion\assertion_fifo.sv
+L0 7
+Z4 OL;L;10.4e;61
+Z5 !s108 1685630182.000000
+Z6 !s107 ..\TEST/base_test.sv|..\ENV/env.sv|..\ENV/score_board.sv|..\ENV/ref_model.sv|..\ENV/monitor.sv|..\ENV/driver.sv|..\ENV/gen.sv|..\ENV/trans.sv|..\ENV/define.sv|..\ENV/fifo_inf.sv|..\TOP\top.sv|..\Assertion\assertion_fifo.sv|..\TEST\pkg.sv|..\RTL\Asy_fifo.v|
+Z7 !s90 ..\RTL\Asy_fifo.v|..\TEST\pkg.sv|..\Assertion\assertion_fifo.sv|..\TOP\top.sv|+incdir+..\ENV|+incdir+..\TEST|
+!i113 0
+Z8 o-L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z9 !s92 {+incdir+..\ENV} {+incdir+..\TEST} -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+vAsynchronous_fifo
+R2
+r1
+!s85 0
+31
+!i10b 1
+!s100 SOI6VUD;<eDWzkLY9a6UP1
+I>X<B3<P57`b92?4G4DZzW2
+R3
+w1684842629
+8..\RTL\Asy_fifo.v
+F..\RTL\Asy_fifo.v
+L0 5
+R4
+R5
+R6
+R7
+!i113 0
+R8
+R9
+n@asynchronous_fifo
+Yfifo_inf
+R1
+R2
+r1
+!s85 0
+31
+!i10b 1
+!s100 ;aG7F3NPWT5XNQMYl7Jnb0
+ISPIQlUa5QS>Z13>mQj6dE3
+!s105 pkg_sv_unit
+S1
+R3
+w1685608660
+8..\ENV/fifo_inf.sv
+Z10 F..\ENV/fifo_inf.sv
+L0 3
+R4
+R5
+R6
+R7
+!i113 0
+R8
+R9
+Xfifo_pkg
+R1
+VSXLF[TTFb@eeWWV30VV7N2
+r1
+!s85 0
+31
+!i10b 1
+!s100 I>a`=HJhTS;?fjc_n9zGH3
+ISXLF[TTFb@eeWWV30VV7N2
+S1
+R3
+w1685630179
+Z11 8..\TEST\pkg.sv
+Z12 F..\TEST\pkg.sv
+F..\ENV/define.sv
+F..\ENV/trans.sv
+F..\ENV/gen.sv
+F..\ENV/driver.sv
+F..\ENV/monitor.sv
+F..\ENV/ref_model.sv
+F..\ENV/score_board.sv
+F..\ENV/env.sv
+F..\TEST/base_test.sv
+L0 3
+R4
+R5
+R6
+R7
+!i113 0
+R8
+R9
+Xpkg_sv_unit
+R1
+!i10b 1
+!s100 GkP7FXG`m6QBCSn8B1RT_2
+I7MV<3mTaIPSnh;h9DP24D1
+V7MV<3mTaIPSnh;h9DP24D1
+!i103 1
+S1
+R0
+w1685608308
+R11
+R12
+R10
+L0 1
+R4
+!s108 1685608644.000000
+!s107 ..\TEST/base_test.sv|..\TEST/b2b_TC.sv|..\TEST/simultaneous_TC.sv|..\TEST/rstn_drn_opn_TC.sv|..\TEST/write_read.sv|..\ENV/env.sv|..\ENV/score_board.sv|..\ENV/ref_model.sv|..\ENV/monitor.sv|..\ENV/driver.sv|..\ENV/gen.sv|..\ENV/trans.sv|..\ENV/define.sv|..\ENV/fifo_inf.sv|..\TOP\top.sv|..\Assertion\assertion_fifo.sv|..\TEST\pkg.sv|..\RTL\Asy_fifo.v|
+R7
+!i113 0
+R8
+R9
+vtb
+R1
+Z13 DXx4 work 8 fifo_pkg 0 22 SXLF[TTFb@eeWWV30VV7N2
+DXx4 work 11 top_sv_unit 0 22 IYX3BQf>6S:eC>OzX>dDL3
+R2
+r1
+!s85 0
+31
+!i10b 1
+!s100 M7bNRoM@VkiSWlec8RV[n1
+I_;Pb5c=f;obaj=8MB?NGO1
+!s105 top_sv_unit
+S1
+R3
+Z14 w1685609647
+Z15 8..\TOP\top.sv
+Z16 F..\TOP\top.sv
+L0 4
+R4
+R5
+R6
+R7
+!i113 0
+R8
+R9
+Xtop_sv_unit
+R1
+R13
+VIYX3BQf>6S:eC>OzX>dDL3
+r1
+!s85 0
+31
+!i10b 1
+!s100 L;bNU2J1Z5h?3da7;=IV22
+IIYX3BQf>6S:eC>OzX>dDL3
+!i103 1
+S1
+R3
+R14
+R15
+R16
+L0 2
+R4
+R5
+R6
+R7
+!i113 0
+R8
+R9

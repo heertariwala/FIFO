@@ -1,0 +1,358 @@
+/*class driver;
+//trans class handler 
+	trans trans_h , trans_h1 , trans_h2 , trans_h3 , trans_h4;
+
+// parametarize mailbox for gen_drv and drv_sb
+	mailbox #(trans) gen_drv;
+
+//intrface 
+	virtual fifo_inf.DRIVER vif ;
+
+trans wr_que[$];
+trans rd_que[$];
+trans que[$];
+static int  i , j;
+	
+
+
+// new function takes two arguments are mailbox and interface 
+  function  new ( mailbox #(trans) gen_drv ,
+			   virtual fifo_inf.DRIVER vif 
+	         	);
+     this.gen_drv = gen_drv ;
+     this.vif     = vif     ; 		
+  endfunction
+
+
+  task run();
+    forever fork
+
+        begin
+        //fork
+	gen_drv.get(trans_h);
+	if((trans_h.trans_kind_e == WRITE)  || (trans_h.trans_kind_e == SIM_RW) )
+                @(vif.driver_wr) wr_que.push_back(trans_h);
+
+        if((trans_h.trans_kind_e == READ)  || (trans_h.trans_kind_e == SIM_RW) )
+                @(vif.driver_rd) rd_que.push_back(trans_h);
+      
+	end
+
+	send_to_dut();
+
+      join
+
+  endtask
+
+  
+  task send_to_dut();
+  forever begin   
+    fork
+      write();
+      read();
+    join_any	    
+  end
+  endtask
+
+
+
+
+  task write();
+    forever begin
+     wait(wr_que.size() != 0 );
+     disable fork;
+     @(vif.driver_wr);
+     trans_h1  = wr_que.pop_front();
+     
+     vif.driver_wr.wr_enb  <=  trans_h1.trans_kind_e[1];
+     vif.driver_wr.wr_data <=  trans_h1.wr_data;
+     vif.driver_wr.rstn    <=  trans_h1.rstn   ;
+
+     fork 
+       @(vif.driver_wr);
+       vif.driver_wr.wr_enb  <= 0 ;
+
+     join_none
+
+    end       
+  endtask
+
+
+
+
+  task read();
+   forever begin
+    wait(rd_que.size() != 0);
+    disable fork;
+    @(vif.driver_wr);
+    trans_h2 = rd_que.pop_front();
+    
+    vif.driver_rd.rd_enb  <= trans_h2.trans_kind_e[0] ;
+    vif.driver_rd.rstn    <= trans_h2.rstn   ;
+
+    fork
+      @(vif.driver_rd);
+      vif.driver_rd.rd_enb  <= 0; 
+    join_none
+
+   end 
+  endtask
+
+
+
+
+
+endclass
+
+
+
+
+*/
+
+/*class driver;
+//trans class handler 
+	trans trans_h , trans_h1 , trans_h2 , trans_h3 , trans_h4;
+
+// parametarize mailbox for gen_drv and drv_sb
+	mailbox #(trans) gen_drv;
+
+//intrface 
+	virtual fifo_inf.DRIVER vif ;
+
+trans wr_que[$];
+trans rd_que[$];
+trans que[$];
+static int  i , j;
+	
+
+
+// new function takes two arguments are mailbox and interface 
+	function  new ( mailbox #(trans) gen_drv ,
+			   virtual fifo_inf.DRIVER vif 
+	         	);
+		this.gen_drv = gen_drv ;
+		this.vif     = vif     ; 		
+	endfunction
+
+
+  task run();
+    fork
+
+      forever begin
+        gen_drv.get(trans_h);
+                wr_que.push_back(trans_h);
+                rd_que.push_back(trans_h);
+      end
+
+      begin
+         send_to_dut();
+      end
+
+    join
+  endtask
+
+  
+  task send_to_dut();
+    fork
+      write();
+      read();
+    join_none	    
+  endtask
+
+
+
+
+  task write();
+    forever begin
+     wait(wr_que.size() != 0 );     
+		  
+     @(vif.driver_wr);
+ 
+     if(wr_que.size() != 0)
+         trans_h1               =  wr_que.pop_front();
+
+    if((trans_h1.trans_kind_e == WRITE)  || (trans_h1.trans_kind_e == SIM_RW) )begin
+	    vif.driver_wr.wr_enb  <= trans_h1.trans_kind_e[1];
+	   // $display($time,"write :- %d", ++i);
+       	    if(rd_que.size() != 0) 
+                  trans_h3              =  rd_que.pop_front();
+
+    end
+
+    else  begin
+	    vif.driver_wr.wr_enb  <= 0;
+	    $display($time ," write else ");
+    end
+
+     vif.driver_wr.wr_data <=  trans_h1.wr_data;
+     vif.driver_wr.rstn    <=  trans_h1.rstn   ;
+
+
+     $display($time ,"  write, %p \n wr_que:- %p",trans_h1, wr_que);
+
+    end       
+  endtask
+
+
+
+
+  task read();
+   forever begin
+    wait(rd_que.size() != 0);    
+    
+    @(vif.driver_rd);
+
+    if(rd_que.size() != 0)
+        trans_h2              =  rd_que.pop_front();
+
+
+    if((trans_h2.trans_kind_e == READ) || (trans_h2.trans_kind_e == SIM_RW) ) begin
+	    vif.driver_rd.rd_enb  <= trans_h2.trans_kind_e[0];
+
+	    if(wr_que.size() !=0)
+                     trans_h4              =  wr_que.pop_front();
+	    $display($time," read :- ",++j);
+    end
+    else begin
+	    vif.driver_rd.rd_enb  <= 0; 
+	    $display($time ," read , else ");
+    end
+
+
+    vif.driver_rd.rstn    <= trans_h2.rstn   ;
+    $display($time,"read, %p ,\n rd_que :- %p",trans_h1,rd_que);
+   end 
+  endtask
+
+
+
+
+
+endclass
+
+
+
+
+
+//    if(vif.driver_rd.rd_enb == 1) begin
+//	   fork
+//	      begin    
+//		@(vif.driver_rd);
+//		vif.driver_rd.rd_enb <= 0;
+//              end
+//           join_none
+//	   #0;
+ //   end
+ 
+ /*  task que();
+    gen_drv.get(trans_h);
+    
+    if(trans_h.trans_kind_e == WRITE || trans_h.trans_kind_e == SIM_RW ) 
+	wr_que.push_back(trans_h);
+    if(trans_h.trans_kind_e == READ  || trans_h.trans_kind_e == SIM_RW )
+	rd_que.push_back(trans_h);
+	   
+
+  endtask*/
+     
+
+
+/* 	  
+  task run ();
+
+     forever 	  
+         fork
+	     @(vif.driver_wr) send_to_wr_inf();
+	     @(vif.driver_rd) send_to_rd_inf(); 		   	  
+         join_any
+
+  endtask*/
+  //if(trans_h.trans_kind_e == WRITE || trans_h.trans_kind_e == SIM_RW )
+
+
+
+
+
+//
+//
+//
+//
+//
+	  
+
+
+
+class driver;
+//trans class handler 
+	trans trans_h , trans_h1 , trans_h2 , trans_h3 , trans_h4;
+
+// parametarize mailbox for gen_drv and drv_sb
+	mailbox #(trans) gen_drv;
+
+//intrface 
+	virtual fifo_inf.DRIVER vif ;
+
+	
+
+
+// new function takes two arguments are mailbox and interface 
+	function  new ( mailbox #(trans) gen_drv ,
+			   virtual fifo_inf.DRIVER vif 
+	         	);
+		this.gen_drv = gen_drv ;
+		this.vif     = vif     ; 		
+	endfunction
+
+
+  task run();
+
+    forever begin
+      gen_drv.get(trans_h);
+     
+        fork
+		send_to_wr_inf();
+		send_to_rd_inf();
+	join_any	
+
+     end
+
+  endtask
+
+
+   // task for drive values through write clocking block 
+	task send_to_wr_inf();
+                @(vif.driver_wr);
+		vif.driver_wr.wr_enb  <= trans_h.trans_kind_e[1];
+	        vif.driver_rd.rd_enb  <= trans_h.trans_kind_e[0];
+		vif.driver_wr.wr_data <= trans_h.wr_data;
+		vif.driver_wr.rstn    <= trans_h.rstn   ;
+
+  /*              fork 
+   		  @(vif.driver_wr);
+                  vif.driver_wr.wr_enb  <= 0 ;
+                join_none
+ */		
+	endtask
+
+   //task for drive values through read clocking block 
+	task send_to_rd_inf();
+	        @(vif.driver_rd);
+		vif.driver_wr.wr_enb  <= trans_h.trans_kind_e[1];
+	        vif.driver_rd.rd_enb  <= trans_h.trans_kind_e[0];
+                vif.driver_rd.rstn    <= trans_h.rstn   ;
+
+
+/*   		fork 
+		@(vif.driver_rd);
+		vif.driver_rd.rd_enb  <= 0 ;
+                join_none
+*/		
+
+	endtask
+	
+
+
+endclass
+
+
+

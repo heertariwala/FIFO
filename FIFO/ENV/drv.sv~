@@ -1,0 +1,151 @@
+class driver;
+//trans class handler 
+  trans trans_h , trans_h1 , trans_h2 , trans_h3 , trans_h4;
+
+// parametarize mailbox for gen_drv and drv_sb
+  mailbox #(trans) gen_drv;
+
+//intrface 
+  virtual fifo_inf.DRIVER vif ;
+  
+	
+  int i;
+
+
+// new function takes two arguments are mailbox and interface 
+  function  new ( mailbox #(trans) gen_drv ,
+		   virtual fifo_inf.DRIVER vif 
+           	);
+  	this.gen_drv = gen_drv ;
+	this.vif     = vif     ; 		
+  endfunction
+
+
+  task run();
+    fork
+
+	  forever begin
+             //if driver dont have any data than 
+            
+		      /*@(vif.driver_wr)*/  vif.driver_wr.wr_enb  <= 0;
+		      /*@(vif.driver_rd)*/  vif.driver_rd.rd_enb  <= 0;
+	     else begin
+		 // get data from mailbox in trans_h 
+                 gen_drv.get(trans_h);
+
+  		 case(trans_h.trans_kind_e)
+			 WRITE: begin
+				   vif.driver_rd.rd_enb  <= 0;
+ 				   send_to_wr_dut(trans_h);
+			 	end
+			// 
+			 READ : begin
+				   vif.driver_wr.wr_enb  <= 0;
+				   send_to_rd_dut(trans_h);
+				 end	 
+
+ 			// in sim_rw both task should start togather 
+			 SIM_RW: fork
+			 	   send_to_wr_dut(trans_h);
+				   send_to_rd_dut(trans_h);
+ 				 join_any
+		 endcase
+
+  	      end // else	
+		 
+	end//forever
+
+     join // fork_join
+ 
+ endtask :run
+
+  
+  // send to dut through write driver , when transh_kind value is WRITE
+  task send_to_wr_dut( trans trans_h1);
+
+         vif.driver_wr.wr_enb  <=  trans_h1.trans_kind_e[1];
+         vif.driver_wr.rstn    <=  trans_h1.rstn   ;
+	 vif.driver_wr.wr_data <=  trans_h1.wr_data;
+         @(vif.driver_wr);
+
+  endtask
+
+  // send to dut through read driver , when transh_kind value is READ
+  task send_to_rd_dut( trans trans_h1);
+         vif.driver_rd.rstn    <=  trans_h1.rstn            ; 
+	 vif.driver_rd.rd_enb  <=  trans_h1.trans_kind_e[0] ;
+         @(vif.driver_rd);
+  endtask
+
+
+
+endclass
+
+
+
+
+
+
+
+
+//-------------------------Commented code---------------
+/*
+		  // get data from gen_drv
+		  gen_drv.get(trans_h);
+
+
+                  // if trans kind value is write than write task is call
+		  if(trans_h.trans_kind_e == WRITE ) 
+			   send_to_wr_dut(trans_h);
+		  // if trans kind value is read than write enable shoud be off 
+		  else if(trans_h.trans_kind_e == READ )
+			  vif.driver_wr.wr_enb  <= 0;
+
+
+		  //if trans kind value is read than read task will call
+		  if(trans_h.trans_kind_e == READ)
+			  send_to_rd_dut(trans_h);
+		  // if trans kind value is write than read enable shoud be off
+		  else if(trans_h.trans_kind_e == WRITE )
+			  vif.driver_rd.rd_enb  <= 0;
+                
+
+		  // if trans kind value is sim_rw than in fork join both task
+		  // will call
+		  if(trans_h.trans_kind_e == SIM_RW )
+		  fork
+			  send_to_wr_dut_sim_rw(trans_h); 
+                          send_to_rd_dut_sim_rw(trans_h);   
+		  join
+			  	  
+	    end   //else 
+		 
+	  end   // forever
+
+    join
+	  
+  endtask
+  */
+
+  // send to dut through write driver , when sim_rw case accur 
+ /* task send_to_wr_dut_sim_rw( trans trans_h1);
+
+        @(vif.driver_wr);
+         vif.driver_wr.wr_enb  <=  trans_h1.trans_kind_e[1];
+         vif.driver_wr.rstn    <=  trans_h1.rstn   ;
+	 vif.driver_wr.wr_data <=  trans_h1.wr_data;
+	@(vif.driver_wr);
+	 vif.driver_wr.wr_enb  <=  0 ; 
+
+  endtask
+
+  // send to dut through read driver , when sim_rw case accur 
+  task send_to_rd_dut_sim_rw( trans trans_h1);
+         @(vif.driver_rd);
+         vif.driver_rd.rstn    <=  trans_h1.rstn            ; 
+	 vif.driver_rd.rd_enb  <=  trans_h1.trans_kind_e[0] ;
+	 @(vif.driver_rd);
+         vif.driver_rd.rd_enb  <=  0;
+  endtask */
+
+
