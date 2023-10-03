@@ -4,7 +4,7 @@
 
 module  Asynchronous_fifo( rstn , wr_clk , rd_clk , wr_enb ,rd_enb, input_data , output_data , full , empty , almost_full , almost_empty , half_full );
 
-input 						  rstn, 
+input 						  prstn, 
 						wr_clk, 
 						rd_clk,
 						wr_enb, 
