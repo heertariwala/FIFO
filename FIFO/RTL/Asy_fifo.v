@@ -43,7 +43,7 @@ always @(posedge wr_clk or negedge rstn) begin
 		end	
 	end 
 end //end always block of wr_clk
-
+//
 
 always@(posedge rd_clk or negedge rstn) begin 
 	if(!rstn) begin  
